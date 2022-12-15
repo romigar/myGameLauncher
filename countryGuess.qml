@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.1
+import QtQuick.Controls.Material 2.1
 
 import Engine 1.0
 
@@ -10,10 +11,6 @@ Page {
     width: 640
     height: 480
     title: qsTr("Hello World")
-
-    Engine {
-        id: myEngine
-    }
 
     Text {
         id: textBestScore
@@ -137,10 +134,10 @@ Page {
         id: colorResult
         color: if (myEngine.questionFinished) {
                    if( myEngine.displayGood)
-                       "#00cc00"
-                   else "#cc0000"
+                       Material.color(Material.Green)
+                   else Material.color(Material.Red)
                } else
-                   "#000000"
+                   Material.color(Material.BlueGrey)
 
         visible: false
     }
@@ -172,9 +169,9 @@ Page {
         enabled: !myEngine.questionFinished
         contentItem: Text {
                 text: myEngine.squareAnswer1
-                color: if (buttonSquare1.enabled) {"black"}
-                       else { if(buttonSquare1.contentItem.text === myEngine.rightAnswer){"#00cc00"}
-                           else "#cc0000" }
+                color: if (buttonSquare1.enabled) {Material.color(Material.BlueGrey)}
+                       else { if(buttonSquare1.contentItem.text === myEngine.rightAnswer){Material.color(Material.Green)}
+                           else Material.color(Material.Red) }
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
@@ -194,9 +191,9 @@ Page {
         enabled: !myEngine.questionFinished
         contentItem: Text {
                 text: myEngine.squareAnswer2
-                color: if (buttonSquare2.enabled) {"black"}
-                       else { if(buttonSquare2.contentItem.text === myEngine.rightAnswer){"#00cc00"}
-                           else "#cc0000" }
+                color: if (buttonSquare2.enabled) {Material.color(Material.BlueGrey)}
+                       else { if(buttonSquare2.contentItem.text === myEngine.rightAnswer){Material.color(Material.Green)}
+                           else Material.color(Material.Red) }
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
@@ -217,9 +214,9 @@ Page {
         enabled: !myEngine.questionFinished
         contentItem: Text {
                 text: myEngine.squareAnswer3
-                color: if (buttonSquare3.enabled) {"black"}
-                       else { if(buttonSquare3.contentItem.text === myEngine.rightAnswer){"#00cc00"}
-                           else "#cc0000" }
+                color: if (buttonSquare3.enabled) {Material.color(Material.BlueGrey)}
+                       else { if(buttonSquare3.contentItem.text === myEngine.rightAnswer){Material.color(Material.Green)}
+                           else  Material.color(Material.Red)  }
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
@@ -241,40 +238,13 @@ Page {
         enabled: !myEngine.questionFinished
         contentItem: Text {
                 text: myEngine.squareAnswer4
-                color: if (buttonSquare4.enabled) {"black"}
-                       else { if(buttonSquare4.contentItem.text === myEngine.rightAnswer){"#00cc00"}
-                           else "#cc0000" }
+                color: if (buttonSquare4.enabled) {Material.color(Material.BlueGrey)}
+                       else { if(buttonSquare4.contentItem.text === myEngine.rightAnswer){Material.color(Material.Green)}
+                           else Material.color(Material.Red) }
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
                 anchors.fill: parent
-        }
-    }
-
-    Button {
-        id: buttonNewGame
-        text: qsTr("Nouvelle partie")
-        anchors.top: parent.top
-        anchors.topMargin: 63
-        anchors.left: parent.left
-        anchors.leftMargin: 8
-        onClicked: myEngine.onButtonNewGameClicked(comboBoxContinent.currentText)
-    }
-
-    ComboBox {
-        id: comboBoxContinent
-        anchors.top: parent.top
-        anchors.topMargin: 17
-        anchors.left: parent.left
-        anchors.leftMargin: 8
-        model: ListModel {
-            id: model
-            ListElement { text: "Monde" }
-            ListElement { text: "Asie" }
-            ListElement { text: "Afrique" }
-            ListElement { text: "Amérique" }
-            ListElement { text: "Europe" }
-            ListElement { text: "Océanie" }
         }
     }
 

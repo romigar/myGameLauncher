@@ -7,5 +7,6 @@
         <file>qtquickcontrols2.conf</file>
         <file>countryGuess.qml</file>
         <file>countryGuess/ressources/liste.csv</file>
+        <file>Home.qml</file>
     </qresource>
 </RCC>

@@ -1,6 +1,8 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 
+import Engine 1.0
+
 ApplicationWindow {
     id: window
     visible: true
@@ -30,6 +32,13 @@ ApplicationWindow {
         }
     }
 
+    property alias myEngine:myEngine
+
+    Engine {
+        id: myEngine
+    }
+
+
     Drawer {
         id: drawer
         width: window.width * 0.66
@@ -39,7 +48,7 @@ ApplicationWindow {
             anchors.fill: parent
 
             ItemDelegate {
-                text: qsTr("Page 1")
+                text: qsTr("countryGuess")
                 width: parent.width
                 onClicked: {
                     stackView.push("countryGuess.qml")
@@ -59,7 +68,7 @@ ApplicationWindow {
 
     StackView {
         id: stackView
-        initialItem: "HomeForm.ui.qml"
+        initialItem: "Home.qml"
         anchors.fill: parent
     }
 }
