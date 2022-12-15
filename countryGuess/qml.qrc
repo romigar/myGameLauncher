@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ressources/liste.csv</file>
+    </qresource>
+</RCC>
